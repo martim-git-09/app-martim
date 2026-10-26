@@ -15,9 +15,9 @@
 <style>
   html,body{height:100%;background:#000;-webkit-tap-highlight-color:transparent;overscroll-behavior:none}
   body{font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text",system-ui,sans-serif;color:#fff}
-  #app{height:100dvh;display:flex;flex-direction:column}
+  #app{position:fixed;top:0;left:0;right:0;bottom:0;display:flex;flex-direction:column}
   main{flex:1;overflow-y:auto;padding:calc(env(safe-area-inset-top,0px) + 16px) 16px 24px}
-  nav{padding-bottom:calc(max(env(safe-area-inset-bottom,0px),12px) + 22px)}
+  nav{padding-bottom:calc(env(safe-area-inset-bottom,0px) + 8px)}
   html,body,main{overflow-x:hidden}
   input,textarea{font-size:16px!important;color-scheme:dark;min-width:0}
   input[type=date],input[type=time]{-webkit-appearance:none;appearance:none;min-height:48px;text-align:left}

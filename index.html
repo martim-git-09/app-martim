@@ -16,8 +16,8 @@
   html,body{height:100%;background:#000;-webkit-tap-highlight-color:transparent;overscroll-behavior:none}
   body{font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text",system-ui,sans-serif;color:#fff}
   #app{position:fixed;top:0;left:0;right:0;bottom:0;display:flex;flex-direction:column}
-  main{flex:1;overflow-y:auto;padding:calc(env(safe-area-inset-top,0px) + 16px) 16px 24px}
-  nav{padding-bottom:calc(env(safe-area-inset-bottom,0px) + 8px)}
+  main{flex:1;overflow-y:auto;padding:calc(env(safe-area-inset-top,0px) + 16px) 16px calc(env(safe-area-inset-bottom,0px) + 110px)}
+  nav{position:fixed;left:0;right:0;bottom:0;z-index:50;padding-bottom:calc(env(safe-area-inset-bottom,0px) + 8px)}
   html,body,main{overflow-x:hidden}
   input,textarea{font-size:16px!important;color-scheme:dark;min-width:0}
   input[type=date],input[type=time]{-webkit-appearance:none;appearance:none;min-height:48px;text-align:left}
@@ -218,7 +218,7 @@ dash(){
   <div class="${card}"><h2 class="text-lg font-semibold mb-3 text-[#30d158]">📖 Tarefas</h2>
     <div class="space-y-1 mb-3">${todos}</div>
     <div class="relative"><input id="newTodo" placeholder="Nova tarefa..." class="${inp} pr-12">
-    <button data-a="add" class="absolute right-1.5 top-1.5 bottom-1.5 w-9 bg-[#30d158] text-black rounded-lg flex items-center justify-center">${icon('plus',18,3)}</button></div></div></div>`;
+    <button data-a="add" class="absolute right-1.5 top-1.5 bottom-1.5 w-9 bg-[#30d158] text-black rounded-lg flex items-center justify-center">${icon('plus',18,3)}</button></div></div></div><p class="text-center text-[10px] text-gray-600 mt-6">APP MARTIM · v3</p>`;
 },
 cal(){
   const MS=['Jan','Fev','Mar','Abr','Mai','Jun','Jul','Ago','Set','Out','Nov','Dez'];

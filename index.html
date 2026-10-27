@@ -250,14 +250,14 @@ dash(){
     <div class="grid grid-cols-2 gap-2 mb-2"><button data-a="exp" class="bg-[#2c2c2e] rounded-xl py-3 text-sm font-semibold">Copiar dados</button><button data-a="imp" class="bg-[#bf5af2] text-black rounded-xl py-3 text-sm font-semibold">Importar</button></div>
     <textarea id="impTxt" placeholder="Cola aqui os dados para importar (substitui os atuais)" class="${inp} min-h-[90px] resize-none">${esc(impVal)}</textarea>${dataMsg?`<div class="text-xs mt-2 text-gray-300">${dataMsg}</div>`:''}</div>`;
   return head('Hoje',date)+`<div class="space-y-4">
-  ${ncCard}${cd}<div class="${card}"><h2 class="text-lg font-semibold mb-4 text-[#0a84ff]">🧑‍💻 Rotina</h2>
+  <div class="${card}"><h2 class="text-lg font-semibold mb-4 text-[#0a84ff]">🧑‍💻 Rotina</h2>
     <div class="space-y-3 mb-5">${row('Creatina',d.creatine,'bg-[#0a84ff] border-[#0a84ff]','creatine',sc?'🔥 '+sc+(sc===1?' dia seguido':' dias seguidos'):'')}${row('Ginásio',d.gym,'bg-[#ff9f0a] border-[#ff9f0a]','gym',sg?'🔥 '+sg+(sg===1?' treino seguido':' treinos seguidos'):'')}</div>
     <h3 class="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-2">Treino da semana</h3>
     <div class="space-y-2">${plan}</div></div>
   <div class="${card}"><h2 class="text-lg font-semibold mb-3 text-[#30d158]">📖 Tarefas</h2>
     <div class="space-y-1 mb-3">${todos}</div>
     <div class="relative"><input id="newTodo" placeholder="Nova tarefa..." class="${inp} pr-12">
-    <button data-a="add" class="absolute right-1.5 top-1.5 bottom-1.5 w-9 bg-[#30d158] text-black rounded-lg flex items-center justify-center">${icon('plus',18,3)}</button></div></div>${dataCard}</div><p class="text-center text-[10px] text-gray-600 mt-6">APP MARTIM · v7 · ${innerHeight}/${screen.height}</p>`;
+    <button data-a="add" class="absolute right-1.5 top-1.5 bottom-1.5 w-9 bg-[#30d158] text-black rounded-lg flex items-center justify-center">${icon('plus',18,3)}</button></div></div>${dataCard}</div><p class="text-center text-[10px] text-gray-600 mt-6">APP MARTIM · v8 · ${innerHeight}/${screen.height}</p>`;
 },
 cal(){
   const seg=`<div class="grid grid-cols-2 gap-1 p-1 bg-[#1c1c1e] rounded-xl mb-4"><button data-a="cm" data-v="ev" class="py-2 rounded-lg text-sm font-semibold ${calMode==='ev'?'bg-[#0a84ff] text-white':'text-gray-400'}">Eventos</button><button data-a="cm" data-v="hor" class="py-2 rounded-lg text-sm font-semibold ${calMode==='hor'?'bg-[#0a84ff] text-white':'text-gray-400'}">Horário</button></div>`;
@@ -341,15 +341,11 @@ gym(){
   <div class="${card}"><h2 class="text-lg font-semibold mb-3 text-[#ff9f0a]">🏋️ Treino de hoje</h2>
     <div class="space-y-2 mb-3">${tod.map(row).join('')||'<p class="text-gray-500 text-sm text-center py-3">Ainda sem exercícios hoje.</p>'}</div>
     <datalist id="exl">${names.map(n=>`<option value="${esc(n)}">`).join('')}</datalist>
-    <div class="space-y-2"><input id="gEx" list="exl" data-enter="addg" placeholder="Exercício (ex: Supino inclinado)" class="${inp}">
+    <div class="space-y-2"><input id="gEx" list="exl" data-enter="addg" placeholder="Exercício" class="${inp}">
     <div class="grid grid-cols-3 gap-2"><input id="gS" inputmode="numeric" placeholder="Séries" class="${inp}"><input id="gR" inputmode="numeric" placeholder="Reps" class="${inp}"><input id="gW" inputmode="decimal" placeholder="Kg" class="${inp}"></div>
     <button data-a="addg" class="w-full bg-[#ff9f0a] text-black font-semibold rounded-xl py-3 flex items-center justify-center gap-2">${icon('plus',18,3)} Adicionar exercício</button></div></div>
   <div class="${card}"><h2 class="text-lg font-semibold mb-3 text-[#30d158]">📈 Evolução da carga</h2>
     ${names.length?`<select id="gSel" class="${inp} mb-3">${names.map(n=>`<option ${n===sel?'selected':''} value="${esc(n)}">${esc(n)}</option>`).join('')}</select>${chart(pts,'#ff9f0a',' kg')}${best?`<div class="text-xs text-gray-400 mt-2">Melhor carga: <b class="text-white">${fmtN(best)} kg</b></div>`:'<p class="text-xs text-gray-500 mt-2">Regista a carga (kg) para ver a evolução.</p>'}`:'<p class="text-gray-500 text-sm text-center py-3">Adiciona exercícios para ver a evolução.</p>'}</div>
-  <div class="${card}"><h2 class="text-lg font-semibold mb-3 text-[#0a84ff]">⚖️ Peso</h2>
-    ${chart(wts.slice(-30).map(x=>({d:x.date,y:x.kg})),'#0a84ff',' kg')}
-    <div class="space-y-1.5 my-3">${wrows}</div>
-    <div class="flex gap-2"><input id="wKg" data-enter="addw" inputmode="decimal" placeholder="Peso de hoje (kg)" class="${inp} flex-1"><button data-a="addw" class="w-12 shrink-0 bg-[#0a84ff] text-white rounded-xl flex items-center justify-center">${icon('plus',20,3)}</button></div></div>
   ${hist?`<div class="${card}"><h2 class="text-lg font-semibold mb-3">🗓️ Histórico</h2>${hist}</div>`:''}</div>`;
 },
 uni(){
